@@ -1,0 +1,355 @@
+:root {
+  --tg-bg: #FAF6EF;
+  --tg-secondary-bg: #F0EADC;
+  --tg-text: #241F16;
+  --tg-hint: #8A8171;
+  --tg-link: #2F5D50;
+  --tg-button: #2F5D50;
+  --tg-button-text: #ffffff;
+
+  --accent: #2F5D50;
+  --accent-soft: #DCE6DE;
+  --success: #3C7A57;
+  --success-soft: #DEEBE2;
+  --danger: #B5482E;
+  --danger-soft: #F4E1DA;
+  --line: rgba(36, 31, 22, 0.12);
+
+  --radius: 14px;
+  --gap: 12px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: var(--tg-bg);
+  color: var(--tg-text);
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-size: 15px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#app {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 76px;
+}
+
+.topbar {
+  padding: 18px 18px 8px;
+  position: sticky;
+  top: 0;
+  background: var(--tg-bg);
+  z-index: 5;
+}
+
+.topbar h1 {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 600;
+  font-size: 26px;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+main#screen {
+  flex: 1;
+  padding: 4px 16px 24px;
+}
+
+.loading, .empty {
+  color: var(--tg-hint);
+  text-align: center;
+  padding: 40px 12px;
+  font-size: 14px;
+}
+
+.tabbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  background: var(--tg-secondary-bg);
+  border-top: 1px solid var(--line);
+  padding: 8px 4px calc(8px + env(safe-area-inset-bottom));
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.tab {
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  font-family: inherit;
+  font-size: 11px;
+  color: var(--tg-hint);
+  padding: 4px 6px;
+  border-radius: 10px;
+  flex: 1;
+}
+
+.tab .ic { font-size: 20px; line-height: 1; }
+
+.tab.active { color: var(--accent); font-weight: 600; }
+
+/* ---------- Карточки ---------- */
+
+.card {
+  background: var(--tg-secondary-bg);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: var(--gap);
+}
+
+.card-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-title {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.card-sub {
+  color: var(--tg-hint);
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+.price-tag {
+  font-variant-numeric: tabular-nums;
+  color: var(--accent);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ---------- Кнопки ---------- */
+
+.btn {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  padding: 11px 16px;
+  cursor: pointer;
+}
+
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-soft { background: var(--accent-soft); color: var(--accent); }
+.btn-danger { background: var(--danger-soft); color: var(--danger); }
+.btn-block { width: 100%; }
+
+.btn-row { display: flex; gap: 8px; margin-top: 10px; }
+.btn-row .btn { flex: 1; }
+
+.fab {
+  position: sticky;
+  bottom: 12px;
+  display: block;
+  margin: 16px auto 0;
+}
+
+/* ---------- Формы ---------- */
+
+.field { margin-bottom: 14px; }
+
+.field label {
+  display: block;
+  font-size: 12px;
+  color: var(--tg-hint);
+  margin-bottom: 5px;
+}
+
+.field input, .field select {
+  width: 100%;
+  font-family: inherit;
+  font-size: 15px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--tg-bg);
+  color: var(--tg-text);
+}
+
+/* ---------- Дата-навигатор ---------- */
+
+.date-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.date-nav input[type="date"] {
+  flex: 1;
+  font-family: inherit;
+  font-size: 14px;
+  padding: 9px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--tg-secondary-bg);
+  color: var(--tg-text);
+}
+
+.icon-btn {
+  background: var(--tg-secondary-bg);
+  border: none;
+  border-radius: 10px;
+  width: 38px;
+  height: 38px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* ---------- Урок в списке ---------- */
+
+.lesson {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 4px;
+  border-bottom: 1px solid var(--line);
+}
+
+.lesson:last-child { border-bottom: none; }
+
+.lesson-time {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  width: 46px;
+  flex-shrink: 0;
+}
+
+.lesson-info { flex: 1; min-width: 0; }
+.lesson-name { font-weight: 500; }
+.lesson-price { color: var(--tg-hint); font-size: 12px; }
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--line);
+}
+.status-dot.yes { background: var(--success); }
+.status-dot.no { background: var(--danger); }
+
+.lesson-actions { display: flex; gap: 6px; }
+.lesson-actions button {
+  border: none;
+  background: var(--tg-secondary-bg);
+  border-radius: 8px;
+  width: 30px;
+  height: 30px;
+  font-size: 14px;
+}
+.lesson-actions button.on-yes { background: var(--success-soft); }
+.lesson-actions button.on-no { background: var(--danger-soft); }
+
+/* ---------- Неделя ---------- */
+
+.week-day { margin-bottom: 16px; }
+.week-day h3 {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 6px;
+}
+.week-slot {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13.5px;
+  padding: 5px 0;
+  border-bottom: 1px dashed var(--line);
+}
+.week-slot:last-child { border-bottom: none; }
+.week-free { color: var(--tg-hint); font-size: 13px; padding: 4px 0; }
+
+/* ---------- Расчёт ---------- */
+
+.calc-total {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--accent);
+  margin: 6px 0 2px;
+}
+
+.calc-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13.5px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+/* ---------- Модальный лист снизу ---------- */
+
+.sheet-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 16, 10, 0.4);
+  display: flex;
+  align-items: flex-end;
+  z-index: 20;
+}
+.sheet-overlay.hidden { display: none; }
+
+.sheet {
+  background: var(--tg-bg);
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  border-radius: 20px 20px 0 0;
+  padding: 20px 18px calc(20px + env(safe-area-inset-bottom));
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.sheet h2 {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 14px;
+}
+
+.sheet-close {
+  float: right;
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: var(--tg-hint);
+  cursor: pointer;
+}
+
+.schedule-list { margin: 4px 0 14px; }
+.schedule-slot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+}
+.schedule-slot button {
+  border: none;
+  background: none;
+  color: var(--danger);
+  font-size: 16px;
+}
+
+hr.sep { border: none; border-top: 1px solid var(--line); margin: 16px 0; }
